@@ -4,35 +4,38 @@ console.log('--- Init ---')
 
 let test: String = fs.readFileSync('input3.txt','utf8');
 let house: any 
-let coords: any = '0.0'
-let x: number = 0
-let y: number = 0
+let coords: String = '0.0'
 
 // ^v<>
 
 for ( let i:number = 0 ; i < test.length ; i++ ) {
 
+    let x: number = parseInt(coords[0])
+    let y: number = parseInt(coords[2])
+
     console.log(i)
     if (test[i] == "^") {
-        let plus = parseInt(coords[2]) + 1
-        coords[2] = plus.toString()
+        y += 1
     }
     if (test[i] == "v") {
-        let plus = parseInt(coords[2]) - 1
-        coords[2] = plus.toString()
+        y -= 1
     }
     if (test[i] == "<") {
-        let plus = parseInt(coords[0]) - 1
-        coords[2] = plus.toString()
+        x -= 1
     }
     if (test[i] == ">") {
-        let plus = parseInt(coords[0]) + 1 
-        coords[2] = plus.toString()
+        x += 1
     }
 
-    house.push(coords)
+    coords = `${x}.${y}`
+
+    let matches:number = 0
+    house.array.forEach(element: String => {
+        if (coords == element) matches += 1
+    });
+
+    if (matches == 0) house.push(coords)
 }
 
 console.log(house)
 
-console.log(coords[1])
