@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@types/node": "^20.8.4",
+    "npx": "^10.2.2",
+    "ts-node": "^10.9.1"
+  }
+}
