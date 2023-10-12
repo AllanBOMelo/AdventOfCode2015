@@ -1,41 +1,24 @@
-import * as fs from 'fs';
+import * as fs from "fs";
 
-console.log('--- Init ---')  
+console.log("--- Init ---");
 
-let test: String = fs.readFileSync('input3.txt','utf8');
-let house: any 
-let coords: String = '0.0'
+let test: String = fs.readFileSync("input3.txt", "utf8");
+let house: Array<Object> = [];
+let coords: any = [0, 0];
 
 // ^v<>
+//house.includes(coords)
+//JSON.stringify Converte os arrays para algo 'comparavel'
 
-for ( let i:number = 0 ; i < test.length ; i++ ) {
+for (let i: number = 0; i <= test.length - 1; i++) {
+  if (test[i] == "^") coords[1] += 1;
+  if (test[i] == "v") coords[1] -= 1;
+  if (test[i] == "<") coords[0] -= 1;
+  if (test[i] == ">") coords[0] += 1;
 
-    let x: number = parseInt(coords[0])
-    let y: number = parseInt(coords[2])
+  let assing: any = [coords[0], coords[1]];
 
-    console.log(i)
-    if (test[i] == "^") {
-        y += 1
-    }
-    if (test[i] == "v") {
-        y -= 1
-    }
-    if (test[i] == "<") {
-        x -= 1
-    }
-    if (test[i] == ">") {
-        x += 1
-    }
-
-    coords = `${x}.${y}`
-
-    let matches:number = 0
-    house.array.forEach(element: String => {
-        if (coords == element) matches += 1
-    });
-
-    if (matches == 0) house.push(coords)
+  if (house.includes(JSON.stringify(assing)) == false)
+    house.push(JSON.stringify(assing));
 }
-
-console.log(house)
-
+console.log(house.length);
