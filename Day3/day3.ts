@@ -5,7 +5,7 @@ console.log("--- Init ---");
 let test: String = fs.readFileSync("input3.txt", "utf8");
 let house: Array<Object> = [];
 let coords: any = [0, 0];
-
+ 
 // ^v<>
 //house.includes(coords)
 //JSON.stringify Converte os arrays para algo 'comparavel'

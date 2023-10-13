@@ -4,7 +4,7 @@ console.log('--- Init ---')
 
 // Ler Input
 
-let test: any = fs.readFileSync('input2.txt','utf8');
+let test: any = fs.readFileSync('./Day2/input2.txt','utf8');
 let split: any = test.split("\r\n")
 let foot: number = 0
 

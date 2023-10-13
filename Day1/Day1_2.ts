@@ -3,7 +3,7 @@ import * as fs from 'fs';
 console.log('--- Init ---')  
 
 let floor: number = 0
-let test: any = fs.readFileSync('input.txt','utf8');
+let test: any = fs.readFileSync('./Day1/input.txt','utf8');
 let position: number
 
 for (let i: number = 0; i < test.length ; i++ ) {
