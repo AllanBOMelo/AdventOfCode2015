@@ -18,9 +18,9 @@ while (control) {
     input_number += 1
 
     let hash: String = Md5.hashStr(input + input_number.toString())
-    let hashStart: String = hash.split("", 5).join("")
+    let hashStart: String = hash.split("", 6).join("")
 
-    hashStart == "00000" ? control = false : control = true
+    hashStart == "000000" ? control = false : control = true
 }
 
 console.log(input_number)
