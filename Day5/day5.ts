@@ -14,12 +14,8 @@ let vowel: string[] = ['a', 'e', 'i', 'o', 'u']
 //vogais.indexOf(letra.toLowerCase()) !== -1
 
 function isnaughtyFunction (item: string) {
-
-    if (item.includes('ab') || item.includes('cd') || item.includes('pq') || item.includes('xy')) {
-        return true
-    } else { 
-        return false
-    }
+    
+    return /(ab|cd|pq|xy)/.test(item);
 
 }
 
@@ -39,28 +35,30 @@ function howManyDouble (item:string) {
     let counter: number = 0;
     let array: string[] = item.split("")
 
-    array.forEach((element, index) => {
-        if (element == array[index + 1] && index < array.length - 2) counter += 1
-    })
+    for (let i: number = 0 ; i < array.length -1 ; i++) {
+        if (array[i] === array[i + 1] ) {
+            counter += 1
+            break
+        } 
+    }
 
     return counter
 }
 
 ////
 
-inputArray.forEach((item) => {
+inputArray.forEach((item, index) => {
     let vowels: number = howManyVowels(item);
     let doubleLetter: number = howManyDouble(item);
     var isnaughty : boolean = isnaughtyFunction(item);
 
-    console.log(`${item} vowe: ${vowels} double: ${doubleLetter} naughty: ${isnaughty}`)
-
     if (isnaughty == false && vowels > 2  && doubleLetter > 0 ) {
         nice += 1
-        
-    } //else {
+       // console.log(`${item} vowe: ${vowels} double: ${doubleLetter} naughty: ${isnaughty} index: ${index} join: yes`)
+    } else {
+        //console.log("no")
         //console.log(`${item} vowe: ${vowels} double: ${doubleLetter}`)
-    //}
+    }
 })
 
 
